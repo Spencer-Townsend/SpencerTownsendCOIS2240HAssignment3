@@ -1,6 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 public class Transaction {
 
     private static Transaction instance;
@@ -44,5 +46,21 @@ public class Transaction {
     private String getCurrentDateTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(new Date());
+    }
+
+    //save transactions as a string
+    public void saveTransaction(String string)
+    {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Transactions.txt"));
+            writer.write(string);
+            writer.write("\n");
+
+            writer.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
 }
