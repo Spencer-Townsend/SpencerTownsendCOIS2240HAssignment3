@@ -121,10 +121,12 @@ public class LibraryManagement {
                 case 7:
                     System.out.println("Exiting. Good Bye..");
                     running = false;
+                    scanner.close();
                     break;
                 default:
                     System.out.println("Invalid choice! Please try again.");
             }
         }
+
     }
 }
