@@ -7,22 +7,20 @@ public class Library {
 
     // Add a new member to the library
     public Boolean addMember(Member member) {
-        if(findMemberById(member.getId()).getId()== member.getId())
-            return false;
-        else{
-        members.add(member);
-        return true;
-        }
+        if(findMemberById(member.getId()) == null )
+            {
+                members.add(member);
+                return true;
+            }
+        else{return false;}
     }
     
     // Add a new book to the library
     public Boolean addBook(Book book) {
-        if(findBookById((book.getId())).getId() == book.getId())
-            return false;
-        else{
-        books.add(book);
-        return true;
-        }
+        if(findBookById((book.getId())) == null){
+            books.add(book);
+            return true;}
+        else{return false ;}
     }
 
     // Find a member by ID

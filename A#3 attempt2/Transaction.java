@@ -9,7 +9,7 @@ import java.util.Date;
 public class Transaction {
 
     private static Transaction instance;
-
+    private static BufferedWriter writer;
     private Transaction(){}
 
     public static Transaction getTransaction()
@@ -56,24 +56,27 @@ public class Transaction {
     //save transactions as a string
     public void saveTransaction(String string)
     {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Transactions.txt"));
-            writer.write(string);
-            writer.write("\n");
-            
-            writer.close();
-        } catch (IOException e) {
-            // default catch
-            e.printStackTrace();
-        }
-    
+        if(writer == null)
+            {try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("Transactions.txt",true));
+                writer.write(string);
+                writer.newLine();
+                writer.close();
+            } catch (IOException e) {
+                // default catch
+                e.printStackTrace();
+            }}
+        
+        
     }
     //retreive history
     public void displayTransactionHistory()
     {
         try{
             BufferedReader reader = new BufferedReader(new FileReader("Transactions.txt"));
-            System.out.println(reader.read());
+            String line;
+            while((line = reader.readLine()) != null)
+                System.out.println(line);
             reader.close();
         }
         catch(FileNotFoundException e )

@@ -1,1 +1,10 @@
-2024-11-29 12:23:50 - Borrowing: testy borrowed testthing
+2024-11-29 17:17:56 - Borrowing: George borrowed Progamming
+2024-11-29 17:18:07 - Borrowing: George borrowed Math
+2024-11-29 17:18:20 - Borrowing: Anne borrowed AI
+2024-11-29 17:18:45 - Returning: George returned Math
+2024-11-29 17:18:55 - Borrowing: Anne borrowed Math
+2024-11-29 17:25:35 - Borrowing: George borrowed Programming
+2024-11-29 17:25:42 - Borrowing: George borrowed MAth
+2024-11-29 17:25:52 - Borrowing: Anne borrowed AI
+2024-11-29 17:26:07 - Returning: George returned MAth
+2024-11-29 17:26:15 - Borrowing: Anne borrowed MAth
