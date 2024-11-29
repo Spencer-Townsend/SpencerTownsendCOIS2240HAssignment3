@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -23,6 +26,7 @@ public class Transaction {
             member.borrowBook(book); 
             String transactionDetails = getCurrentDateTime() + " - Borrowing: " + member.getName() + " borrowed " + book.getTitle();
             System.out.println(transactionDetails);
+            saveTransaction(transactionDetails);
             return true;
         } else {
             System.out.println("The book is not available.");
@@ -37,6 +41,7 @@ public class Transaction {
             book.returnBook();
             String transactionDetails = getCurrentDateTime() + " - Returning: " + member.getName() + " returned " + book.getTitle();
             System.out.println(transactionDetails);
+            saveTransaction(transactionDetails);
         } else {
             System.out.println("This book was not borrowed by the member.");
         }
@@ -55,12 +60,29 @@ public class Transaction {
             BufferedWriter writer = new BufferedWriter(new FileWriter("Transactions.txt"));
             writer.write(string);
             writer.write("\n");
-
+            
             writer.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            // default catch
             e.printStackTrace();
         }
-
+    
+    }
+    //retreive history
+    public void displayTransactionHistory()
+    {
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("Transactions.txt"));
+            System.out.println(reader.read());
+            reader.close();
+        }
+        catch(FileNotFoundException e )
+        {
+            System.out.println("file not found");
+        }
+        catch(IOException e)
+        {
+            // default catch
+            e.printStackTrace();}
     }
 }
