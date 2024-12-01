@@ -17,7 +17,7 @@ public class Library {
     
     // Add a new book to the library
     public Boolean addBook(Book book) {
-        if(findBookById((book.getId())) == null){
+        if(findBookById((book.getId())) == null && Book.isValidId(book.getId())){
             books.add(book);
             return true;}
         else{return false ;}

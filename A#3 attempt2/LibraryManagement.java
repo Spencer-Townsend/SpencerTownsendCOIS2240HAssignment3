@@ -41,6 +41,8 @@ public class LibraryManagement {
                     System.out.println("Member added successfully.");
                     break;
                 case 2:
+                    id = 0;
+                    while(!Book.isValidId(id))
                     System.out.print("Enter book ID: ");
                     id = scanner.nextInt();
                 	System.out.print("Enter book title: ");
@@ -48,9 +50,15 @@ public class LibraryManagement {
                     
                     scanner.nextLine();
 
-                    Book newBook = new Book(id, title);
-                    library.addBook(newBook);
-                    System.out.println("Book added to library successfully.");
+                    Book newBook;
+                    try {
+                        newBook = new Book(id, title);
+                        library.addBook(newBook);
+                        System.out.println("Book added to library successfully.");
+                    } catch (Exception e) {
+                        System.out.println("Unable to add book to Library(Id Invalid)");
+                    }
+                    
                     break;
                 case 3:
                 	System.out.println("\n--- Available Members ---");

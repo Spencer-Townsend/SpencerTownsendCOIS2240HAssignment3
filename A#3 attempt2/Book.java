@@ -3,7 +3,12 @@ public class Book {
     private String title;
     private boolean available;
 
-    public Book(int id, String title) {
+    public Book(int id, String title)throws Exception {
+    
+            if(!isValidId(id)){
+                throw new Exception("invalid Id");
+            }
+       
         this.id = id;
         this.title = title;
         this.available = true;
@@ -35,7 +40,7 @@ public class Book {
     }
 
     // Method to check if a book id is valid
-    public boolean isValidId(int id) {
+    public static boolean isValidId(int id) {
         return id >= 100 && id <= 999;
     }
 }
