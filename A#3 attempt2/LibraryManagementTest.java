@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertFalse;
+import java.lang.reflect.Constructor;
 
 import org.junit.Test;
 
@@ -41,6 +42,19 @@ public class LibraryManagementTest {
         }
         catch(Exception e)
         {}
+    }
+
+    @Test
+    public void testsingletonTransaction()
+    {
+        try {
+            Constructor<Transaction> constructor = Transaction.class.getDeclaredConstructor();
+            assertEquals(2,constructor.getModifiers());//this means the constructor is private
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
     }
 }
 
