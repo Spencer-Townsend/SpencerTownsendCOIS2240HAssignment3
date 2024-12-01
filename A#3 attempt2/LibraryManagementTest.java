@@ -1,16 +1,12 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertFalse;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
-
-import org.junit.Before;
 import org.junit.Test;
 
 public class LibraryManagementTest {
-
-
+    
+    Transaction transaction = Transaction.getTransaction();
     @Test
     public void testMain() {
 
@@ -27,6 +23,24 @@ public class LibraryManagementTest {
         assertThrows(Exception.class, () -> new Book(5000, "testBook3"));
         assertEquals(new Book(100, "Valid1").getId(), validEdgeBook1.getId());
         assertEquals(new Book(999,"Valid2").getId(), validEdgeBook2.getId());
+    }
+
+    @Test
+    public void testLibraryMangment()
+    {
+        try
+        {
+        Book book = new Book(100, "book");
+        Member person = new Member(1,"person");
+        assertEquals(true, book.isAvailable());
+        transaction.borrowBook(book, person);
+        assertEquals(false, book.isAvailable());
+        assertFalse(transaction.borrowBook(book, person));
+        assertEquals(true, transaction.returnBook(book, person));
+        assertFalse(transaction.returnBook(book, person));
+        }
+        catch(Exception e)
+        {}
     }
 }
 

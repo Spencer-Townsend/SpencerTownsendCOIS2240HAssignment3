@@ -3,3 +3,12 @@
 2024-11-29 17:18:20 - Borrowing: Anne borrowed AI
 2024-11-29 17:18:45 - Returning: George returned Math
 2024-11-29 17:18:55 - Borrowing: Anne borrowed Math
+2024-12-01 14:45:03 - Borrowing: person borrowed book
+2024-12-01 14:45:23 - Borrowing: person borrowed book
+2024-12-01 15:12:43 - Borrowing: person borrowed book
+2024-12-01 15:41:06 - Borrowing: person borrowed book
+2024-12-01 15:41:06 - Returning: person returned book
+2024-12-01 15:41:18 - Borrowing: person borrowed book
+2024-12-01 15:41:18 - Returning: person returned book
+2024-12-01 15:42:12 - Borrowing: person borrowed book
+2024-12-01 15:42:12 - Returning: person returned book
